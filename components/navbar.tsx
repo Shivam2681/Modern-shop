@@ -59,10 +59,10 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className='hidden md:block'>
                 <Bell className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className='hidden lg:block'>
                 <Heart className="h-5 w-5" />
               </Button>
               <Button variant="ghost" size="icon">

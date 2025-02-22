@@ -42,7 +42,7 @@ export function ProductSection({ title, products, category }: ProductSectionProp
     <section className="max-w-7xl mx-auto px-4 py-12">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center gap-3">
-          <h2 className="text-3xl font-bold">{title}</h2>
+          <h2 className="text-xl md:text-3xl font-bold">{title}</h2>
           {title.includes('Trending') && <TrendingUp className="h-6 w-6 text-red-500" />}
         </div>
         {category && (
