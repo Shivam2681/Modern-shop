@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -20,6 +20,14 @@ export default function CheckoutPage() {
   const router = useRouter();
   const { items, total, clearCart } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (items.length === 0) {
+      router.push('/cart');
+    }
+    setIsLoading(false);
+  }, [items.length, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,8 +40,7 @@ export default function CheckoutPage() {
     router.push('/success');
   };
 
-  if (items.length === 0) {
-    router.push('/cart');
+  if (isLoading) {
     return null;
   }
 
